@@ -1,0 +1,21 @@
+# Copyright IBM Corp. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+networks:
+  test:
+    name: fabric_test
+
+services:
+  couchdb_dlsu:
+    container_name: couchdb_dlsu
+    image: couchdb:3.4.2
+    labels:
+      service: hyperledger-fabric
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=adminpw
+    ports:
+      - "9084:5984"
+    networks:
+      - test
+
